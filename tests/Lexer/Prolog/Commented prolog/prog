@@ -1,0 +1,2 @@
+<?php//this is opening tag, it is needed for ever php script
+/* this is something that is needed for compability with IFJ code */declare(/*some parameter here*//*aaaaaaa*/strict_types=/*:)*/1);//bye
