@@ -41,9 +41,9 @@ def run_test(path, files):
 	out,err_out = proc.communicate(str.encode(open(path+"prog").read()))
 	ret_code = proc.returncode
 	if "ret" in files:
-		expected_ret = int(open(path+"ret").read())
-		if expected_ret != ret_code:
-			err(f"Wrong error code found {ret_code}, but expected {expected_ret}")
+		expected_ret = [*map(int,open(path+"ret").read().split("|"))]
+		if ret_code not in expected_ret:
+			err(f"Wrong error code found {ret_code}, but expected {' or '.join(map(str,expected_ret))}")
 			is_ok = False
 	if is_ok:
 		succ("TEST SUCCESS")
