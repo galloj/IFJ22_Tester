@@ -53,12 +53,16 @@ def run_test(path, files):
 		err("TEST FAILURE")
 	return is_ok
 
+is_ok = True
 for root, dirs, files in os.walk("./tests"):
 	path = root.split(os.sep)[2:]
 	if path==[]:continue
 	if "prog" in files:
 		test(path[-1])
-		run_test(root + "/", files)
+		if not run_test(root + "/", files):
+			is_ok = False
 	else:
 		print(Fore.YELLOW + "---"*(len(path)-1)+"> "+Fore.WHITE+path[-1])
-	
+
+if not is_ok:
+	sys.exit(1)
