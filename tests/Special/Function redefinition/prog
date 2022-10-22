@@ -1,0 +1,10 @@
+<?php
+declare(strict_types=1);
+function hello() : int {
+  return 5;
+}
+
+function hello() : int {
+    return 6;
+  }
+
