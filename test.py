@@ -48,12 +48,8 @@ def run_test(path, files):
 	is_ok = True
 	proc = Popen([compiler_path], stdin=PIPE, stdout=PIPE, stderr=PIPE)
 	out,err_out = proc.communicate(str.encode(open(path+"prog").read()))
-	ret_code = proc.returncode
-	if "ret" in files:
-		expected_ret = [*map(int,open(path+"ret").read().split("|"))]
-		if ret_code not in expected_ret:
-			err(f"Wrong error code found {ret_code}, but expected {' or '.join(map(str,expected_ret))}")
-			is_ok = False
+	ret_code_comp = proc.returncode
+	ret_code = ret_code_comp
 	if "out" in files and interpreter_path is not None:
 		expected_out = open(path+"out").read()
 		# store current out to temp
@@ -63,10 +59,16 @@ def run_test(path, files):
 		proc = Popen([interpreter_path, "temp_out"], stdin=PIPE, stdout=PIPE, stderr=PIPE)
 		out_int,err_out_int = proc.communicate("")
 		ret_code_int = proc.returncode
+		ret_code = ret_code or ret_code_int
 		if out_int.decode("utf-8") != expected_out:
 			err(f"Wrong output found {out_int.decode('utf-8')}, but expected {expected_out}")
 			print(err_out_int.decode('utf-8'))
 			print("INTERPRETER STDERR output:")
+			is_ok = False
+	if "ret" in files:
+		expected_ret = [*map(int,open(path+"ret").read().split("|"))]
+		if ret_code not in expected_ret:
+			err(f"Wrong error code found {ret_code}, but expected {' or '.join(map(str,expected_ret))}")
 			is_ok = False
 	if is_ok:
 		succ("TEST SUCCESS")
