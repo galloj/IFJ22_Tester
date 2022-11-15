@@ -4,4 +4,8 @@ function f() : void {
   return;
 }
 $x = f();
-write($x);
+if($x !== null) {
+  write("NOT NULL\n");
+} else {
+  write("NULL\n");
+}
