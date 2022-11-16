@@ -1,0 +1,16 @@
+<?php
+declare(strict_types=1);
+function f(int $x) : int {
+    if($x === 0) {
+        return 0;
+    } else {
+        if($x === 1) {
+            return 1;
+        } else {
+            $res1 = f($x - 1);
+            $res2 = f($x - 2);
+            return $res1 + $res2;
+        }
+    }
+}
+write(f(9), "\n");
