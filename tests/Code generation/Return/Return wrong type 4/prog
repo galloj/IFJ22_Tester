@@ -1,0 +1,7 @@
+<?php
+declare(strict_types=1);
+function f(int $x) : float {
+  $x = $x + 2;
+  return $x;
+}
+f(5);
