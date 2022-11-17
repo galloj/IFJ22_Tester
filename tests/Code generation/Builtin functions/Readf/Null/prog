@@ -1,0 +1,9 @@
+<?php
+declare(strict_types=1);
+$x = readf();
+if($x !== null) {
+    $y = $x + 1.0;
+    write($y, "\n");
+} else {
+    write("It is null!\n");
+}
