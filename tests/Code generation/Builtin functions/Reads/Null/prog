@@ -1,0 +1,9 @@
+<?php
+declare(strict_types=1);
+$x = reads();
+if($x !== null) {
+    $y = "Hello " . $x . "!\n";
+    write($y);
+} else {
+    write("It is null!\n");
+}

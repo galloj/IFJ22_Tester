@@ -61,7 +61,10 @@ def run_test(path, files):
 			temp_out.write(out.decode("utf-8"))
 			temp_out.close()
 			proc = Popen([interpreter_path, "temp_out"], stdin=PIPE, stdout=PIPE, stderr=PIPE)
-			out_int,err_out_int = proc.communicate("", timeout=timeout)
+			in_text = ""
+			if "in" in files:
+				in_text = open(path+"in").read().encode("utf-8")
+			out_int,err_out_int = proc.communicate(in_text, timeout=timeout)
 			ret_code_int = proc.returncode
 			ret_code = ret_code or ret_code_int
 			if out_int.decode("utf-8") != expected_out:
