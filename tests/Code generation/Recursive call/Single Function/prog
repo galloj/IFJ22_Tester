@@ -4,8 +4,10 @@ function f(int $x) : int {
     if($x === 0) {
         return 0;
     } else {
-        $res = f($x - 1);
+        $param = $x - 1;
+        $res = f($param);
         return $res + $x;
     }
 }
-write(f(10), "\n");
+$res = f(10);
+write($res, "\n");

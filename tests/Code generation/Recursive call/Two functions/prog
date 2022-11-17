@@ -13,4 +13,5 @@ function g(int $x) : int {
     $res = f($x);
     return $res + 1;
 }
-write(g(10), "\n");
+$res = g(10);
+write($res, "\n");
