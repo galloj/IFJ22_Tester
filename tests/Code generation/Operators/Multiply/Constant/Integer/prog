@@ -1,0 +1,4 @@
+<?php
+declare(strict_types=1);
+$x = 2 * 30;
+write($x, "\n");
