@@ -1,0 +1,4 @@
+<?php
+declare(strict_types=1);
+$x = 5 - 2;
+write($x, "\n");
