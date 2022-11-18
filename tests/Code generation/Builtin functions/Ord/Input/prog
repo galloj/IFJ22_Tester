@@ -1,0 +1,9 @@
+<?php
+declare(strict_types=1);
+$x = reads();
+$n = ord($x);
+if($n === 33) {
+    write("Ord is 33\n");
+} else {
+    write("Not 33\n");
+}

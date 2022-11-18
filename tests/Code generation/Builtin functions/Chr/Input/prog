@@ -1,0 +1,9 @@
+<?php
+declare(strict_types=1);
+$n = readi();
+$x = chr($n);
+if($x === "7") {
+    write("String is 7\n");
+} else {
+    write("Not 7\n");
+}
