@@ -45,7 +45,11 @@ else:
 
 
 
-def run_test(path, files):
+def run_test(path, files, name):
+	if "name" not in files:
+		test(name)
+	else:
+		test(open(path + "name").read().strip())
 	is_ok = True
 	proc = Popen([compiler_path], stdin=PIPE, stdout=PIPE, stderr=PIPE)
 	ret_code = None
@@ -94,8 +98,7 @@ for root, dirs, files in os.walk("./tests"):
 	path = root.split(os.sep)[2:]
 	if path==[]:continue
 	if "prog" in files:
-		test(path[-1])
-		if not run_test(root + "/", files):
+		if not run_test(root + "/", files, path[-1]):
 			is_ok = False
 			errors += 1
 		else:
