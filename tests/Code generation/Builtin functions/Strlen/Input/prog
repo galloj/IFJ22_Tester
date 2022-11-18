@@ -1,0 +1,9 @@
+<?php
+declare(strict_types=1);
+$x = reads();
+$n = strlen($x);
+if($n === 5) {
+    write("Length is 5\n");
+} else {
+    write("Not 5\n");
+}
