@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
-$x = substring("string",0-1,3);
+$arg = 0-1;
+$x = substring("string",$arg,3);
 if($x !== null) {
     write("Not NULL\n");
 } else {
