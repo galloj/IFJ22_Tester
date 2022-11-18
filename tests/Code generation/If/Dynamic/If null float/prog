@@ -1,0 +1,8 @@
+<?php
+declare(strict_types=1);
+$x = readf();
+if($x) {
+    write("BAD\n");
+} else {
+    write("GOOD\n");
+}

@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
-while(0) {
+if("adfs") {
+    write("GOOD\n");
+} else {
     write("BAD\n");
 }
-write("GOOD\n");
