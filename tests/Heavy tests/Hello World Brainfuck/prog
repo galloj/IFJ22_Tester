@@ -11,7 +11,8 @@ function setData(string $data, int $ptr, int $value) : string {
     $data1 = ssubstr($data, 0, $ptr);
     $ptrCont = $ptr + 1;
     $data2 = ssubstr($data, $ptrCont, $dataLen);
-    $out = $data1 . chr($value) . $data2;
+    $chr = chr($value);
+    $out = $data1 . $chr . $data2;
     return $out;
 }
 
