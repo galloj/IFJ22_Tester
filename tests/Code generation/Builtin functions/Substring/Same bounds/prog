@@ -1,0 +1,8 @@
+<?php
+declare(strict_types=1);
+$x = substring("hello", 1, 1);
+if ($x === "") {
+    write("GOOD\n");
+} else {
+    write("BAD\n");
+}
