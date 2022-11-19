@@ -78,6 +78,7 @@ def run_test(path, files, name):
 				is_ok = False
 	except TimeoutExpired:
 		err("Timeout expired")
+		proc.kill()
 		is_ok = False
 	if "ret" in files and ret_code is not None:
 		expected_ret = [*map(int,open(path+"ret").read().split("|"))]
