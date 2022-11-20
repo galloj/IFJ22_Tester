@@ -36,6 +36,11 @@ compiler_path = sys.argv[1]
 interpreter_path = None
 timeout = 5
 
+# load supported extensions
+extensions = []
+if os.path.exists("extensions"):
+	extensions = open("extensions").read().split()
+
 if len(sys.argv) < 3:
 	err("Please supply as second argument of test program path of your interpreter")
 	note("Skipping interpreter tests")
@@ -46,6 +51,10 @@ else:
 
 
 def run_test(path, files, name):
+	if "ext" in files:
+		ext = open(path + "ext").read().strip()
+		if ext not in extensions:
+			return
 	if "name" not in files:
 		test(name)
 	else:
