@@ -1,0 +1,6 @@
+<?php
+declare(strict_types=1);
+while(0.0) {
+    write("BAD\n");
+}
+write("GOOD\n");

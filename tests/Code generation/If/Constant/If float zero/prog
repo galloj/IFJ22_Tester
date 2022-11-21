@@ -1,0 +1,7 @@
+<?php
+declare(strict_types=1);
+if(0.0) {
+    write("BAD\n");
+} else {
+    write("GOOD\n");
+}
