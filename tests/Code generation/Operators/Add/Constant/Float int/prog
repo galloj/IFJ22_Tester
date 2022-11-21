@@ -1,0 +1,4 @@
+<?php
+declare(strict_types=1);
+$x = 1.5 + 1;
+write($x, "\n");
