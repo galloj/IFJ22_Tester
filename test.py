@@ -51,10 +51,6 @@ else:
 
 
 def run_test(path, files, name):
-	if "ext" in files:
-		ext = open(path + "ext").read().strip()
-		if ext not in extensions:
-			return
 	if "name" not in files:
 		test(name)
 	else:
@@ -107,6 +103,10 @@ is_ok = True
 for root, dirs, files in os.walk("./tests"):
 	path = root.split(os.sep)[2:]
 	if path==[]:continue
+	if "ext" in files:
+		ext = open(root + "/ext").read().strip()
+		if ext not in extensions:
+			continue
 	if "prog" in files:
 		if not run_test(root + "/", files, path[-1]):
 			is_ok = False
