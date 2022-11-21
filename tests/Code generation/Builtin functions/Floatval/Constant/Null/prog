@@ -1,0 +1,8 @@
+<?php
+declare(strict_types=1);
+$f = floatval(null);
+if($f === 0.0) {
+    write("GOOD\n");
+} else {
+    write("BAD\n");
+}

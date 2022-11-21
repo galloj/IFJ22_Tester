@@ -1,0 +1,8 @@
+<?php
+declare(strict_types=1);
+$f = intval(35);
+if($f === 35) {
+    write("GOOD\n");
+} else {
+    write("BAD\n");
+}

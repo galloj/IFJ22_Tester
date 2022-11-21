@@ -1,0 +1,10 @@
+<?php
+declare(strict_types=1);
+// This test requires substring() !
+$f = strval(3.14159);
+$sub = substring($f,0,6);
+if($sub === "3.1415") {
+    write("GOOD\n");
+} else {
+    write("BAD\n");
+}
