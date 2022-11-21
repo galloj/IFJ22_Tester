@@ -1,0 +1,11 @@
+<?php
+declare(strict_types=1);
+if(false) {
+    write("BAD\n");
+} elseif(true) {
+    write("GOOD\n");
+} elseif(true) {
+    write("BAD\n");
+} else {
+    write("BAD\n");
+}
