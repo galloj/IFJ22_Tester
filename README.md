@@ -1,5 +1,6 @@
 # Tester for IFJ22 project
 
-Run the test program as `./test.py ../path/to/your/compiler ../path/to/interpreter` or `python3 test.py ../path/to/your/compiler ../path/to/interpreter`
+Run the test program as `./test.py ../path/to/your/compiler ../path/to/interpreter`
+or alternatively as `python3 test.py ../path/to/your/compiler ../path/to/interpreter`
 
-For extensions tests create extensions file in root directory and write there names of the extensions separeted by newline or space.
+For extensions tests, create extensions file in the root directory and write the names of the extensions separated by newline or space.
