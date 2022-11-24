@@ -1,0 +1,9 @@
+<?php
+declare(strict_types=1);
+$arg = 0-1;
+$x = substring("string",2,$arg);
+if($x !== null) {
+    write("Not NULL\n");
+} else {
+    write("Substring is NULL\n");
+}

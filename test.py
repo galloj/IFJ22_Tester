@@ -36,6 +36,11 @@ compiler_path = sys.argv[1]
 interpreter_path = None
 timeout = 5
 
+# load supported extensions
+extensions = []
+if os.path.exists("extensions"):
+	extensions = open("extensions").read().split()
+
 if len(sys.argv) < 3:
 	err("Please supply as second argument of test program path of your interpreter")
 	note("Skipping interpreter tests")
@@ -45,7 +50,15 @@ else:
 
 
 
-def run_test(path, files):
+def run_test(path, files, name):
+	if "ext" in files:
+		ext = open(path + "ext").read().strip()
+		if ext not in extensions:
+			return
+	if "name" not in files:
+		test(name)
+	else:
+		test(open(path + "name").read().strip())
 	is_ok = True
 	proc = Popen([compiler_path], stdin=PIPE, stdout=PIPE, stderr=PIPE)
 	ret_code = None
@@ -74,6 +87,7 @@ def run_test(path, files):
 				is_ok = False
 	except TimeoutExpired:
 		err("Timeout expired")
+		proc.kill()
 		is_ok = False
 	if "ret" in files and ret_code is not None:
 		expected_ret = [*map(int,open(path+"ret").read().split("|"))]
@@ -94,8 +108,7 @@ for root, dirs, files in os.walk("./tests"):
 	path = root.split(os.sep)[2:]
 	if path==[]:continue
 	if "prog" in files:
-		test(path[-1])
-		if not run_test(root + "/", files):
+		if not run_test(root + "/", files, path[-1]):
 			is_ok = False
 			errors += 1
 		else:

@@ -1,0 +1,8 @@
+<?php
+declare(strict_types=1);
+$n = strlen("x\nz\n");
+if($n === 4) {
+    write("Length is 4\n");
+} else {
+    write("Not 4\n");
+}

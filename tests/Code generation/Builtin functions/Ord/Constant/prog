@@ -1,0 +1,8 @@
+<?php
+declare(strict_types=1);
+$n = ord("\nhello\n");
+if($n === 10) {
+    write("Ord is 10\n");
+} else {
+    write("Not 10\n");
+}
