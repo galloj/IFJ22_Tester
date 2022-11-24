@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
-for (null; 0 ;null) {
+for ($i = 0; 0; $i = $i + 1) {
     write("BAD\n");
 }
 write("GOOD\n");
+
