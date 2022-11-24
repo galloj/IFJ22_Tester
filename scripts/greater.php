@@ -6,6 +6,12 @@ $vars_sets =
         ["", "aa", "ab"],
     ];
 
+// strnum
+// $vars_sets =
+//     [
+//         [-1, 0, 1, -1.0, -0.5, 0.0, 0.5, 1.0, "", "aa", "ab"],
+//     ];
+
 function convert($var)
 {
     if (is_numeric($var)) {
