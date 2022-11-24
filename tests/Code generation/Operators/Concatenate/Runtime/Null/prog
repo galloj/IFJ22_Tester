@@ -1,0 +1,13 @@
+<?php
+declare(strict_types=1);
+$a = "hello";
+$c = null;
+$i = 0;
+$n = readi();
+while ($i < $n) {
+    $temp = $a;
+    $a = $c;
+    $c = $temp;
+    $i = $i + 1;
+}
+write($a, "\n");
