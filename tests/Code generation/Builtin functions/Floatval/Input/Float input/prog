@@ -1,0 +1,9 @@
+<?php
+declare(strict_types=1);
+$in = readf();
+$f = floatval($in);
+if($f === 3.14159) {
+    write("GOOD\n");
+} else {
+    write("BAD\n");
+}

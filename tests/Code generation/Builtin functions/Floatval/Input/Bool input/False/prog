@@ -1,0 +1,10 @@
+<?php
+declare(strict_types=1);
+$in = readi();
+$var = boolval($in);
+$f = floatval($var);
+if($f === 0.0) {
+    write("GOOD\n");
+} else {
+    write("BAD\n");
+}
