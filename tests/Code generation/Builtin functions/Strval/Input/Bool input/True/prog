@@ -1,0 +1,11 @@
+<?php
+declare(strict_types=1);
+// boolval() is required for this test
+$in = readi();
+$var = boolval($in);
+$f = strval($var);
+if($f === "1") {
+    write("GOOD\n");
+} else {
+    write("BAD\n");
+}
