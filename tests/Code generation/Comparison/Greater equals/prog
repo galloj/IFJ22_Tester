@@ -75,14 +75,10 @@ if ("ab" >= "aa") {} else { write("fail \"ab\" >= \"aa\"\n"); }
 if ("ab" >= "ab") {} else { write("fail \"ab\" >= \"ab\"\n"); }
 if (0.0 >= 0.0) {} else { write("fail 0.0 >= 0.0\n"); }
 if (0.0 >= 0) {} else { write("fail 0.0 >= 0\n"); }
-if (0.0 >= "") {} else { write("fail 0.0 >= \"\"\n"); }
 if (0.0 >= null) {} else { write("fail 0.0 >= null\n"); }
 if (0 >= 0.0) {} else { write("fail 0 >= 0.0\n"); }
 if (0 >= 0) {} else { write("fail 0 >= 0\n"); }
-if (0 >= "") {} else { write("fail 0 >= \"\"\n"); }
 if (0 >= null) {} else { write("fail 0 >= null\n"); }
-if ("" >= 0.0) { write("fail \"\" >= 0.0\n"); } else {}
-if ("" >= 0) { write("fail \"\" >= 0\n"); } else {}
 if ("" >= "") {} else { write("fail \"\" >= \"\"\n"); }
 if ("" >= null) {} else { write("fail \"\" >= null\n"); }
 if (null >= 0.0) {} else { write("fail null >= 0.0\n"); }
