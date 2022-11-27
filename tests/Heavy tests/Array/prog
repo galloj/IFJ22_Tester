@@ -1,0 +1,73 @@
+<?php
+declare(strict_types=1);
+
+function append(string $in, string $s) : string {
+    return $in . $s . ";";
+}
+
+function get(string $in, int $id) : ?string {
+    $i = 0;
+    $pos = 0;
+    while ($i < $id) {
+        $p1 = $pos + 1;
+        $ch = substring($in, $pos, $p1);
+        while($ch !== ";") {
+            $pos = $pos + 1;
+            $p1 = $pos + 1;
+            $ch = substring($in, $pos, $p1);
+        }
+        $pos = $pos + 1;
+        $i = $i + 1;
+    }
+    $pos_end = $pos;
+    $p1 = $pos_end + 1;
+    $ch = substring($in, $pos_end, $p1);
+    while($ch !== ";") {
+        $pos_end = $pos_end + 1;
+        $p1 = $pos_end + 1;
+        $ch = substring($in, $pos_end, $p1);
+    }
+    return substring($in, $pos, $pos_end);
+}
+
+function set(string $in, int $id, string $s) : string {
+    $i = 0;
+    $pos = 0;
+    while ($i < $id) {
+        $p1 = $pos + 1;
+        $ch = substring($in, $pos, $p1);
+        while($ch !== ";") {
+            $pos = $pos + 1;
+            $p1 = $pos + 1;
+            $ch = substring($in, $pos, $p1);
+        }
+        $pos = $pos + 1;
+        $i = $i + 1;
+    }
+    $pos_end = $pos;
+    $p1 = $pos_end + 1;
+    $ch = substring($in, $pos_end, $p1);
+    while($ch !== ";") {
+        $pos_end = $pos_end + 1;
+        $p1 = $pos_end + 1;
+        $ch = substring($in, $pos_end, $p1);
+    }
+    $before = substring($in, 0, $pos);
+    $slen = strlen($in);
+    $after = substring($in, $pos_end, $slen);
+    return $before . $s . $after;
+}
+
+$arr = "";
+$in = reads();
+while($in !== "END") {
+    $arr = append($arr, $in);
+    $in = reads();
+}
+$arr = set($arr, 1, "program");
+$in = readi();
+while($in !== 0-1) {
+    $id = get($arr, $in);
+    write($id, "\n");
+    $in = readi();
+}
