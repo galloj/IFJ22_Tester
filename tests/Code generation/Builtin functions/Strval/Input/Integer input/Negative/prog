@@ -1,0 +1,9 @@
+<?php
+declare(strict_types=1);
+$in = readi();
+$f = strval($in);
+if($f === "-123") {
+    write("GOOD\n");
+} else {
+    write("BAD\n");
+}
