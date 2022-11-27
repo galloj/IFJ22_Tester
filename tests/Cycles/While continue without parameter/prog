@@ -2,14 +2,14 @@
 declare(strict_types=1);
 $f = 0;
 $j = 0;
-while($j < 3) {
+while($j < 10) {
     if($j == 1) {
         continue;
     }
     $f = $f + 1;
     $j = $j + 1;
 }
-if($f ===  2) {
+if($f ===  8) {
 	write("GOOD\n");
 } else {
 	write("BAD\n");
