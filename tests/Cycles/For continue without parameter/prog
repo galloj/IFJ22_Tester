@@ -1,0 +1,14 @@
+<?php
+declare(strict_types=1);
+$f = 0;
+for($j = 0; $j < 3; $j = $j + 1) {
+    if($j == 1) {
+        continue;
+    }
+    $f = $f + 1;
+}
+if($f ===  2) {
+	write("GOOD\n");
+} else {
+	write("BAD\n");
+}

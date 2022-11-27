@@ -1,0 +1,7 @@
+<?php
+declare(strict_types=1);
+$i = 2;
+for ($i = 0; $i < 4 ; $i = $i + 1) {
+    write($i, "\n");
+}
+write("GOOD\n");
