@@ -27,7 +27,8 @@ function get(string $in, int $id) : ?string {
         $p1 = $pos_end + 1;
         $ch = substring($in, $pos_end, $p1);
     }
-    return substring($in, $pos, $pos_end);
+    $ret = substring($in, $pos, $pos_end);
+    return $ret;
 }
 
 function set(string $in, int $id, string $s) : string {
