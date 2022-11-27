@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
-$x = 1.0 / 5.0 / 5.0;
-if($x < 2.0) {
+$x = 1.0 / 5.0 / 100.0;
+if($x < 1.0) {
     write("GOOD\n");
 } else {
     write("BAD\n");
