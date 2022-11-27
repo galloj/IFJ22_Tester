@@ -2,7 +2,7 @@
 declare(strict_types=1);
 $f = 0;
 for($j = 0; $j < 3; $j = $j + 1) {
-    if ($j == 2){
+    if ($j === 2){
         break;
     }
     $f = $f + 1;
