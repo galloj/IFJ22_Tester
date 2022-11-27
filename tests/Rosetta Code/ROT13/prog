@@ -1,0 +1,38 @@
+<?php
+declare(strict_types=1);
+
+function strtr(string $str, string $from, string $to) : string {
+    $ret = "";
+    $i = 0;
+    $len = strlen($str);
+    while($i < $len) {
+        $i1 = $i + 1;
+        $nextChar = substring($str, $i, $i1);
+        $translatedChar = $nextChar;
+        $j = 0;
+        $len1 = strlen($from);
+        while($j < $len1) {
+            $j1 = $j + 1;
+            $nextChar1 = substring($from, $j, $j1);
+            if($nextChar1 === $nextChar) {
+                $translatedChar = substring($to, $j, $j1);
+            }
+            $j = $j1;
+        }
+        $ret = $ret . $translatedChar;
+        $i = $i + 1;
+    }
+    return $ret;
+}
+
+// source: https://rosettacode.org/wiki/Rot-13#PHP
+
+function rot13(string $s) : string {
+    $ret = strtr($s, "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
+        "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm");
+    return $ret;
+}
+
+$in = reads();
+$out = rot13($in);
+write($out, "\n");
