@@ -10,4 +10,5 @@ while ($i < $n) {
     $c = $temp;
     $i = $i + 1;
 }
-write($a, "\n");
+$res = "hello " . $a;
+write($res, "\n");

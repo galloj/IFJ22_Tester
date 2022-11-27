@@ -1,0 +1,4 @@
+<?php
+declare(strict_types=1);
+$x = null * 5.0;
+write($x, "\n");
