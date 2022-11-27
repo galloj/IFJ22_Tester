@@ -1,0 +1,3 @@
+<?php
+declare(strict_types=1);
+write("GOOD1\n") || write("GOOD2\n");
