@@ -9,7 +9,7 @@ while($j < 10) {
     $f = $f + 1;
     $j = $j + 1;
 }
-if($f ===  8) {
+if($f ===  9) {
 	write("GOOD\n");
 } else {
 	write("BAD\n");
