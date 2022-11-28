@@ -55,12 +55,16 @@ def run_test(path, files, name):
 		test(name)
 	else:
 		test(open(path + "name").read().strip())
+	if "timeout" not in files:
+		timeoutT = timeout
+	else:
+		timeoutT = int(open(path + "timeout").read().strip())
 	is_ok = True
 	proc = Popen([compiler_path], stdin=PIPE, stdout=PIPE, stderr=PIPE)
 	ret_code = None
 	err_out = None
 	try:
-		out,err_out = proc.communicate(str.encode(open(path+"prog").read()), timeout=timeout)
+		out,err_out = proc.communicate(str.encode(open(path+"prog").read()), timeout=timeoutT)
 		ret_code_comp = proc.returncode
 		ret_code = ret_code_comp
 		if "out" in files and interpreter_path is not None:
@@ -73,7 +77,7 @@ def run_test(path, files, name):
 			in_text = ""
 			if "in" in files:
 				in_text = open(path+"in").read().encode("utf-8")
-			out_int,err_out_int = proc.communicate(in_text, timeout=timeout)
+			out_int,err_out_int = proc.communicate(in_text, timeout=timeoutT)
 			ret_code_int = proc.returncode
 			ret_code = ret_code or ret_code_int
 			if out_int.decode("utf-8") != expected_out:
