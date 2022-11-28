@@ -16,7 +16,7 @@ function strtr(string $str, string $from, string $to) : string {
             $nextChar1 = substring($from, $j, $j1);
             if($nextChar1 === $nextChar) {
                 $translatedChar = substring($to, $j, $j1);
-            }
+            } else {}
             $j = $j1;
         }
         $ret = $ret . $translatedChar;

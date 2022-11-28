@@ -17,13 +17,17 @@ declare(strict_types=1);
 // convenient casting
 function si(int $i) : int {
     $ret = intval($i);
-    $ret = $ret - intval($ret / 65536) * 65536;
+    $param = $ret / 65536;
+    $intval = intval($param);
+    $ret = $ret - $intval * 65536;
     return $ret;
   }
 
   function sf(float $i) : int {
     $ret = intval($i);
-    $ret = $ret - intval($ret / 65536) * 65536;
+    $param = $ret / 65536;
+    $intval = intval($param);
+    $ret = $ret - $intval * 65536;
     return $ret;
   }
 
@@ -68,10 +72,12 @@ $bitsPrecision = 6;
 write("PRECISION=", $bitsPrecision, "\n");
 
 $p = toPrec(3.5,$bitsPrecision);
-$X1 = intval($p / $zoom);
+$val = $p / $zoom;
+$X1 = intval($val);
 $X2 = toPrec(2.25,$bitsPrecision) ;
 $p = toPrec(3.0,$bitsPrecision);
-$Y1 = intval($p/$zoom) ;   // horiz pos
+$val = $p/$zoom;
+$Y1 = intval($val) ;   // horiz pos
 $Y2 = toPrec(1.5,$bitsPrecision) ; // vert pos
 $LIMIT = toPrec(4.0,$bitsPrecision);
 
@@ -87,9 +93,16 @@ $runy = 1;
 while ($py < $height*$zoom) {
 $px=0;
 while ($px < $width*$zoom) {
-
-    $x0 = sf(si($px*$X1) / $width) - $X2;
-    $y0 = sf(si($py*$Y1) / $height) - $Y2;
+    $six_arg = $px*$X1;
+    $siy_arg = $py*$Y1;
+    $six = si($six_arg);
+    $siy = si($siy_arg);
+    $sfx_arg = $six / $width;
+    $sfy_arg = $siy / $height;
+    $sfx = sf($sfx_arg);
+    $sfy = sf($sfy_arg);
+    $x0 = $sfx - $X2;
+    $y0 = $sfy - $Y2;
 
     $x=0;
     $y=0;
@@ -100,8 +113,12 @@ while ($px < $width*$zoom) {
     $ySqr = 0;
     $maxItersT = $maxIters;
     while ($i < $maxItersT) {
-        $xSqr = shiftRight(si($x * $x), $bitsPrecision);
-        $ySqr = shiftRight(si($y * $y), $bitsPrecision);
+        $six_arg = $x * $x;
+        $siy_arg = $y * $y;
+        $six = si($six_arg);
+        $siy = si($siy_arg);
+        $xSqr = shiftRight($six, $bitsPrecision);
+        $ySqr = shiftRight($siy, $bitsPrecision);
 
         // Breakout if sum is > the limit OR breakout also if sum is negative which indicates overflow of the addition has occurred
         // The overflow check is only needed for precisions of over 6 bits because for 7 and above the sums come out overflowed and negative therefore we always run to maxIters and we see nothing.
@@ -115,14 +132,23 @@ while ($px < $width*$zoom) {
 
         if($maxItersT !== 0) {
             $xt = $xSqr - $ySqr + $x0;
-            $y = si(si(si(shiftRight(si($x * $y), $bitsPrecision)) * 2) + $y0);
+            $xy = $x * $y;
+            $si = si($xy);
+            $sr = shiftRight($si, $bitsPrecision);
+            $si = si($sr);
+            $si = $si * 2;
+            $si = si($si);
+            $si = $si + $y0;
+            $y = si($si);
             $x=$xt;
 
             $i = $i + 1;
         } else {}
     }
     $i = $i - 1;
-    write(substring($chr, $i, $i+1));
+    $i2 = $i+1;
+    $substr = substring($chr, $i, $i2);
+    write($substr);
 
     $px = $px + 1;
 }
