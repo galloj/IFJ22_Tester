@@ -1,0 +1,31 @@
+<?php
+declare(strict_types=1);
+
+// source: https://rosettacode.org/wiki/Mandelbrot_set#AWK
+
+$XSize=59; $YSize=21;
+$MinIm=0-1.0; $MaxIm=1.0;$MinRe=0-2.0; $MaxRe=1.0;
+$StepX=($MaxRe-$MinRe)/$XSize; $StepY=($MaxIm-$MinIm)/$YSize;
+$y=0;
+while($y<$YSize){
+    $Im=$MinIm+$StepY*$y;
+    $x = 0;
+    while($x<$XSize) {
+        $Re=$MinRe+$StepX*$x; $Zr=$Re; $Zi=$Im;
+        $n = 0;
+        $aaa = 0;
+        while($aaa+$n<30) {
+            $a=$Zr*$Zr; $b=$Zi*$Zi;
+            if($a+$b>4.0) {
+                $aaa = 999;
+            } else {
+                $Zi=2*$Zr*$Zi+$Im; $Zr=$a-$b+$Re;
+                $n = $n + 1;
+            }
+        }
+        write(chr(62-$n));
+        $x = $x + 1;
+    }
+    write("\n");
+    $y = $y + 1;
+}
