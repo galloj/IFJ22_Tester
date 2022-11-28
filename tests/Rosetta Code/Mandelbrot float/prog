@@ -23,7 +23,9 @@ while($y<$YSize){
                 $n = $n + 1;
             }
         }
-        write(chr(62-$n));
+        $code = 62-$n;
+        $chr = chr($code);
+        write($chr);
         $x = $x + 1;
     }
     write("\n");
