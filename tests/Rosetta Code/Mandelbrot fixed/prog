@@ -1,0 +1,124 @@
+<?php
+declare(strict_types=1);
+
+// source: https://rosettacode.org/wiki/Mandelbrot_set#Fixed_point_16_bit_arithmetic
+
+/**
+  ascii Mandelbrot using 16 bits of fixed point integer maths with a selectable fractional precision in bits.
+
+  This is still only 16 bits mathc and allocating more than 6 bits of fractional precision leads to an overflow that adds noise to the plot..
+
+  This code frequently casts to short to ensure we're not accidentally benefitting from GCC promotion from short 16 bits to int.
+
+  gcc fixedPoint.c  -lm
+
+ */
+
+// convenient casting
+function si(int $i) : int {
+    $ret = intval($i);
+    $ret = $ret - intval($ret / 65536) * 65536;
+    return $ret;
+  }
+
+  function sf(float $i) : int {
+    $ret = intval($i);
+    $ret = $ret - intval($ret / 65536) * 65536;
+    return $ret;
+  }
+
+function pow(int $x, int $y) : int {
+    $ret = 1;
+    $i = 0;
+    while($i < $y) {
+        $ret = $ret * $x;
+        $i = $i + 1;
+    }
+    return $ret;
+}
+
+function toPrec(float $f, int $bitsPrecision) : int {
+    $whole = intval($f) * pow(2,$bitsPrecision);
+    $part = intval(($f-intval($f))*(pow(2,$bitsPrecision)));
+    $ret = $whole + $part;
+    return $ret;
+}
+
+function shiftRight(int $n, int $bits) : int {
+    $i = 0;
+    $ret = $n;
+    while($i < $bits) {
+        $ret = $ret / 2;
+        $i = $i + 1;
+    }
+    $ret = intval($ret);
+    return $ret;
+}
+
+// chosen to match https://www.youtube.com/watch?v=DC5wi6iv9io
+$width = 32; // basic width of a zx81
+$height = 22; // basic width of a zx81
+$zoom=1;  // bigger with finer detail ie a smaller step size - leave at 1 for 32x22
+
+// params
+$bitsPrecision = 6;
+write("PRECISION=", $bitsPrecision, "\n");
+
+$X1 = intval(toPrec(3.5,$bitsPrecision) / $zoom);
+$X2 = toPrec(2.25,$bitsPrecision) ;
+$Y1 = intval(toPrec(3.0,$bitsPrecision)/$zoom) ;   // horiz pos
+$Y2 = toPrec(1.5,$bitsPrecision) ; // vert pos
+$LIMIT = toPrec(4.0,$bitsPrecision);
+
+
+// fractal
+//char * chr = ".:-=X$#@.";
+$chr = "abcdefghijklmnopqr ";
+//char * chr = ".,'~=+:;[/<&?oxOX#.";
+$maxIters = strlen($chr);
+
+$py=0;
+$runy = 1;
+while ($py < $height*$zoom) {
+$px=0;
+while ($px < $width*$zoom) {
+
+    $x0 = sf(si($px*$X1) / $width) - $X2;
+    $y0 = sf(si($py*$Y1) / $height) - $Y2;
+
+    $x=0;
+    $y=0;
+
+    $i=0;
+
+    $xSqr = 0;
+    $ySqr = 0;
+    $maxItersT = $maxIters;
+    while ($i < $maxItersT) {
+        $xSqr = shiftRight(si($x * $x), $bitsPrecision);
+        $ySqr = shiftRight(si($y * $y), $bitsPrecision);
+
+        // Breakout if sum is > the limit OR breakout also if sum is negative which indicates overflow of the addition has occurred
+        // The overflow check is only needed for precisions of over 6 bits because for 7 and above the sums come out overflowed and negative therefore we always run to maxIters and we see nothing.
+        // By including the overflow break out we can see the fractal again though with noise.
+        if (($xSqr + $ySqr) >= $LIMIT || ($xSqr+$ySqr) < 0) {
+            $maxItersT = 0;
+        }
+
+        if($maxItersT !== 0) {
+            $xt = $xSqr - $ySqr + $x0;
+            $y = si(si(si(shiftRight(si($x * $y), $bitsPrecision)) * 2) + $y0);
+            $x=$xt;
+
+            $i = $i + 1;
+        }
+    }
+    $i = $i - 1;
+    write(substring($chr, $i, $i+1));
+
+    $px = $px + 1;
+}
+
+write("\n");
+$py = $py + 1;
+}
