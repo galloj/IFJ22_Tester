@@ -38,8 +38,11 @@ function pow(int $x, int $y) : int {
 }
 
 function toPrec(float $f, int $bitsPrecision) : int {
-    $whole = intval($f) * pow(2,$bitsPrecision);
-    $part = intval(($f-intval($f))*(pow(2,$bitsPrecision)));
+    $p = pow(2,$bitsPrecision);
+    $i = intval($f);
+    $whole = $i * $p;
+    $r = ($f-$i)* $p;
+    $part = intval($r);
     $ret = $whole + $part;
     return $ret;
 }
@@ -64,9 +67,11 @@ $zoom=1;  // bigger with finer detail ie a smaller step size - leave at 1 for 32
 $bitsPrecision = 6;
 write("PRECISION=", $bitsPrecision, "\n");
 
-$X1 = intval(toPrec(3.5,$bitsPrecision) / $zoom);
+$p = toPrec(3.5,$bitsPrecision);
+$X1 = intval($p / $zoom);
 $X2 = toPrec(2.25,$bitsPrecision) ;
-$Y1 = intval(toPrec(3.0,$bitsPrecision)/$zoom) ;   // horiz pos
+$p = toPrec(3.0,$bitsPrecision);
+$Y1 = intval($p/$zoom) ;   // horiz pos
 $Y2 = toPrec(1.5,$bitsPrecision) ; // vert pos
 $LIMIT = toPrec(4.0,$bitsPrecision);
 
@@ -101,9 +106,12 @@ while ($px < $width*$zoom) {
         // Breakout if sum is > the limit OR breakout also if sum is negative which indicates overflow of the addition has occurred
         // The overflow check is only needed for precisions of over 6 bits because for 7 and above the sums come out overflowed and negative therefore we always run to maxIters and we see nothing.
         // By including the overflow break out we can see the fractal again though with noise.
-        if (($xSqr + $ySqr) >= $LIMIT || ($xSqr+$ySqr) < 0) {
+        if (($xSqr + $ySqr) >= $LIMIT) {
             $maxItersT = 0;
-        }
+        } else {}
+        if(($xSqr+$ySqr) < 0) {
+            $maxItersT = 0;
+        } else {}
 
         if($maxItersT !== 0) {
             $xt = $xSqr - $ySqr + $x0;
@@ -111,7 +119,7 @@ while ($px < $width*$zoom) {
             $x=$xt;
 
             $i = $i + 1;
-        }
+        } else {}
     }
     $i = $i - 1;
     write(substring($chr, $i, $i+1));
