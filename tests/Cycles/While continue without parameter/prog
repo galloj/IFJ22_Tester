@@ -3,7 +3,7 @@ declare(strict_types=1);
 $f = 0;
 $j = 0;
 while($j < 10) {
-    if($j == 1) {
+    if($j === 1) {
         continue;
     }
     $f = $f + 1;
