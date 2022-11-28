@@ -69,7 +69,7 @@ def run_test(path, files, name):
 		out,err_out = proc.communicate(str.encode(open(path+"prog").read()), timeout=timeoutT)
 		ret_code_comp = proc.returncode
 		ret_code = ret_code_comp
-		if "out" in files and interpreter_path is not None:
+		if "out" in files and interpreter_path is not None and (ret_codes is None or max(ret_codes) >= 3):
 			expected_out = open(path+"out").read()
 			# store current out to temp
 			temp_out = open("temp_out","w")
