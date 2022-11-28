@@ -70,7 +70,7 @@ function length(string $in) : int {
         $ch = substring($in, $pos, $p1);
         if ($ch === ";") {
             $i = $i + 1;
-        }
+        } else {}
     }
     return $i;
 }
