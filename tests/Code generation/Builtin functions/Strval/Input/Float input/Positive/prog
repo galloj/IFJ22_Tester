@@ -1,0 +1,11 @@
+<?php
+declare(strict_types=1);
+// substring() is required for this test
+$in = readf();
+$f = strval($in);
+$sub = substring($f, 0, 7);
+if($sub === "123.456") {
+    write("GOOD\n");
+} else {
+    write("BAD\n");
+}
