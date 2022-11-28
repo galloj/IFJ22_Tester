@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+// source: https://rosettacode.org/wiki/Sierpinski_triangle#Python
+
 function append(string $in, string $s) : string {
     return $in . $s . ";";
 }
@@ -75,16 +77,55 @@ function length(string $in) : int {
     return $i;
 }
 
-$arr = "";
-$in = reads();
-while($in !== "END") {
-    $arr = append($arr, $in);
-    $in = reads();
+function pow(int $x, int $y) : int {
+    $i = 0;
+    $ret = 1;
+    while($i < $y) {
+        $ret = $ret * $x;
+        $i = $i + 1;
+    }
+    return $ret;
 }
-$arr = set($arr, 1, "program");
-$in = readi();
-while($in !== 0-1) {
-    $id = get($arr, $in);
-    write($id, "\n");
-    $in = readi();
+
+function sierpinski(int $n) : string {
+    $d = "";
+    $d = append($d, "*");
+    $i = 0;
+    while($i < $n) {
+        $j = 0;
+        $sp = "";
+        $p = pow(2, $i);
+        while($j < $p) {
+            $sp = $sp . " ";
+            $j = $j + 1;
+        }
+        $j = 0;
+        $len = length($d);
+        $d2 = "";
+        while($j < $len) {
+            $s = get($d, $j);
+            $t2 = $sp . $s . $sp;
+            $d2 = append($d2, $t2);
+            $j = $j + 1;
+        }
+        $j=0;
+        $d3 = "";
+        while($j < $len) {
+            $s = get($d, $j);
+            $t3 = $s . " " . $s;
+            $d3 = append($d3, $t3);
+            $j = $j + 1;
+        }
+        $d = $d2 . $d3;
+        $i = $i + 1;
+    }
+    return $d;
+}
+
+$tri = sierpinski(4);
+$i = 0;
+while($i < length($tri)) {
+    write(get($tri, $i));
+    write("\n");
+    $i = $i + 1;
 }
