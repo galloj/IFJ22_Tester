@@ -48,7 +48,9 @@ if len(sys.argv) < 3:
 else:
 	interpreter_path = sys.argv[2]
 
-
+ret_codes = None
+if os.path.exists("ret_codes"):
+	ret_codes = set([int(x) for x in open("ret_codes").read().split()])
 
 def run_test(path, files, name):
 	if "name" not in files:
@@ -91,7 +93,7 @@ def run_test(path, files, name):
 		is_ok = False
 	if "ret" in files and ret_code is not None:
 		expected_ret = [*map(int,open(path+"ret").read().split("|"))]
-		if ret_code not in expected_ret:
+		if ret_code not in expected_ret and (ret_codes is None or ret_codes.intersection(expected_ret) != set()):
 			err(f"Wrong error code found {ret_code}, but expected {' or '.join(map(str,expected_ret))}")
 			is_ok = False
 	if is_ok:
