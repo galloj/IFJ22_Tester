@@ -72,7 +72,7 @@ function length(string $in) : int {
         $ch = substring($in, $pos, $p1);
         if ($ch === ";") {
             $i = $i + 1;
-        }
+        } else {}
     }
     return $i;
 }
@@ -124,8 +124,11 @@ function sierpinski(int $n) : string {
 
 $tri = sierpinski(4);
 $i = 0;
-while($i < length($tri)) {
-    write(get($tri, $i));
+$len = length($tri);
+while($i < $len) {
+    $res = get($tri, $i);
+    write($res);
     write("\n");
     $i = $i + 1;
+    $len = length($tri);
 }
