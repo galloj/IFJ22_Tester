@@ -1,0 +1,9 @@
+<?php
+declare(strict_types=1);
+$in = reads();
+$f = floatval($in);
+if($f === 123.456789) {
+    write("GOOD\n");
+} else {
+    write("BAD\n");
+}
