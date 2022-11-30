@@ -37,7 +37,7 @@ foreach ($vars_sets as $vars) {
             $b = convert($var2, true);
             $a_e = escape($a);
             $b_e = escape($b);
-            if ($var1 == $var2) {
+            if ($var1 === $var2) {
                 print_r(sprintf("if (%s === %s) {} else { write(\"fail %s === %s\\n\"); }\n", $a, $b, $a_e, $b_e));
             } else {
                 print_r(sprintf("if (%s === %s) { write(\"fail %s === %s\\n\"); } else {}\n", $a, $b, $a_e, $b_e));
