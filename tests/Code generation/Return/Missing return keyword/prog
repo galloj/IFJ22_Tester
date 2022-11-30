@@ -3,4 +3,5 @@ declare(strict_types=1);
 function f() : int {
     2;
 }
-write(f(), "\n");
+$ret = f();
+write($ret, "\n");
