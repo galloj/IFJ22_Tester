@@ -1,0 +1,15 @@
+<?php
+declare(strict_types=1);
+function give_me_5() : int {
+    return 5;
+}
+function foo() : int {
+    $a = 2 * 10;
+    return $a + give_me_5();
+}
+$f = foo();
+if($f === 25) {
+    write("GOOD\n");
+} else {
+    write("BAD\n");
+}
