@@ -11,7 +11,7 @@ while($in !== null) {
     }
     if($sum > $max) {
         $max = $sum;
-    }
+    } else {}
     $in = readi();
 }
 
