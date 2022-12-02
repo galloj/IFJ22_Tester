@@ -1,0 +1,36 @@
+<?php
+declare(strict_types=1);
+
+$sum = 0;
+$in = reads();
+while($in !== null) {
+    $a = substring($in, 0, 1);
+    $b = substring($in, 2, 3);
+    $a = ord($a);
+    $b = ord($b);
+    $a = $a - 65;
+    $b = $b - 88;
+    $sum = $sum + $b + 1;
+    if($a === $b) {
+        $sum = $sum + 3;
+    } else {
+        if($a === 0) {
+            if($b === 1) {
+                $sum = $sum + 6;
+            } else {}
+        } else {}
+        if($a === 1) {
+            if($b === 2) {
+                $sum = $sum + 6;
+            } else {}
+        } else {}
+        if($a === 2) {
+            if($b === 0) {
+                $sum = $sum + 6;
+            } else {}
+        } else {}
+    }
+    $in = reads();
+}
+
+write($sum, "\n");
