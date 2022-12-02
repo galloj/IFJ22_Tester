@@ -1,0 +1,26 @@
+<?php
+declare(strict_types=1);
+
+$sum = 0;
+$in = reads();
+while($in !== null) {
+    $a = substring($in, 0, 1);
+    $b = substring($in, 2, 3);
+    $a = ord($a);
+    $b = ord($b);
+    $a = $a - 65;
+    $b = $b - 88;
+    $sum = $sum + $b * 3;
+    $b = $b - 1;
+    $a = $a + $b;
+    if($a > 2) {
+        $a = $a - 3;
+    } else {}
+    if($a < 0) {
+        $a = $a + 3;
+    } else {}
+    $sum = $sum + $a + 1;
+    $in = reads();
+}
+
+write($sum, "\n");
