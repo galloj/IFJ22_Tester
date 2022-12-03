@@ -2,8 +2,9 @@
 declare(strict_types=1);
 for ($i = 0;;$i = $i + 1) {
     write($i, "\n");
-    if ($i === 3){
+    if ($i === 2){
         break;
     }
+    else {}
 }
 write("GOOD\n");
