@@ -6,6 +6,7 @@ while($j < 3) {
     if ($j === 2){
         break;
     }
+    else {}
     $f = $f + 1;
     $j = $j + 1;
 }
