@@ -38,11 +38,15 @@ while($s1) {
     $ordz = ord("z");
     $ordA = ord("A");
     $ordZ = ord("Z");
-    if($ordCh >= $orda && $ordCh <= $ordz) {
-        $sum = $sum + $ordCh - $orda + 1;
+    if($ordCh >= $orda) {
+        if($ordCh <= $ordz) {
+            $sum = $sum + $ordCh - $orda + 1;
+        } else {}
     } else {}
-    if($ordCh >= $ordA && $ordCh <= $ordZ) {
-        $sum = $sum + $ordCh - $ordA + 27;
+    if($ordCh >= $ordA) {
+        if($ordCh <= $ordZ) {
+            $sum = $sum + $ordCh - $ordA + 27;
+        } else {}
     } else {}
     $s1 = reads();
     $s2 = reads();
