@@ -1,0 +1,11 @@
+<?php
+declare(strict_types=1);
+function return_doubled(int $b) : int {
+    return 2 * $b;
+}
+$f = return_doubled(2+3);
+if($f === 10) {
+    write("GOOD\n");
+} else {
+    write("BAD\n");
+}
