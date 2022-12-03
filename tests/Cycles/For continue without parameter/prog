@@ -5,6 +5,7 @@ for($j = 0; $j < 10; $j = $j + 1) {
     if($j === 1) {
         continue;
     }
+    else {}
     $f = $f + 1;
 }
 if($f ===  9) {
