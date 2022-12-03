@@ -32,10 +32,10 @@ while($in) {
     $ordZ = ord("Z");
     if($ordCh >= $orda && $ordCh <= $ordz) {
         $sum = $sum + $ordCh - $orda + 1;
-    }
+    } else {}
     if($ordCh >= $ordA && $ordCh <= $ordZ) {
         $sum = $sum + $ordCh - $ordA + 27;
-    }
+    } else {}
     $sum = $sum + 0;
     $in = reads();
 }
