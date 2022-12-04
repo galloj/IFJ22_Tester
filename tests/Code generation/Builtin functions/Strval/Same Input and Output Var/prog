@@ -1,0 +1,7 @@
+<?php
+declare(strict_types=1);
+$x = "abcd";
+$x = strval($x);
+$y = null;
+$y = strval($y);
+write($x, $y);

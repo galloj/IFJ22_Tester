@@ -1,0 +1,7 @@
+<?php
+declare(strict_types=1);
+$x = 1;
+$x = floatval($x);
+$y = 1.0;
+$y = floatval($y);
+write($x, $y);
