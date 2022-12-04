@@ -1,0 +1,7 @@
+<?php
+declare(strict_types=1);
+
+$x = reads();
+$y = reads();
+$x = $x + $y;
+write($x, "\n");
