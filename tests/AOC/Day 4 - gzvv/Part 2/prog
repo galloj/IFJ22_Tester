@@ -1,0 +1,137 @@
+<?php
+declare(strict_types=1);
+
+$sum = 0;
+$in = reads();
+
+while($in){
+    $ff = "";
+    $fs = "";
+    $sf = "";
+    $ss = "";
+    $first = "";
+    $second = "";
+    $len = strlen($in);
+    $is = 0;
+
+    $i = 0;
+    $flag = 0;
+    while($i < $len){
+        $ii = $i + 1;
+        $sub = substring($in, $i, $ii);
+        if ($sub !== ","){
+            if ($flag === 0){
+                $first = $first . $sub;
+            } else {
+                $second = $second . $sub;
+            }
+        } else {
+            $flag = 1;
+        }
+        $i = $i + 1;
+    }
+
+    $fc = strlen($first);
+    $sc = strlen($second);
+
+    $i = 0;
+    $flag = 0;
+    while($i < $fc){
+        $ii = $i + 1;
+        $sub = substring($first, $i, $ii);
+        if ($sub !== "-"){
+            if ($flag === 0){
+                $ff = $ff . $sub;
+            } else {
+                $fs = $fs . $sub;
+            }
+        } else {
+            $flag = 1;
+        }
+        $i = $i + 1;
+    }
+
+    $i = 0;
+    $flag = 0;
+    while($i < $sc){
+        $ii = $i + 1;
+        $sub = substring($second, $i, $ii);
+        if ($sub !== "-"){
+            if ($flag === 0){
+                $sf = $sf . $sub;
+            } else {
+                $ss = $ss . $sub;
+            }
+        } else {
+            $flag = 1;
+        }
+        $i = $i + 1;
+    }
+
+    $ffc = strlen($ff);
+    $sfc = strlen($sf);
+
+    while($ffc !== $sfc){
+        if ($ffc > $sfc){
+            $sf = "0" . $sf;
+            $sfc = $sfc + 1;
+        } else {
+            $ff = "0" . $ff;
+            $ffc = $ffc + 1;
+        }
+    }
+
+    $fsc = strlen($fs);
+    $ssc = strlen($ss);
+
+    while($fsc !== $ssc){
+        if ($fsc > $ssc){
+            $ss = "0" . $ss;
+            $ssc = $ssc + 1;
+        } else {
+            $fs = "0" . $fs;
+            $fsc = $fsc + 1;
+        }
+    }
+
+    while($fsc !== $ffc){
+        if ($fsc > $ffc){
+            $ff = "0" . $ff;
+            $ffc = $ffc + 1;
+        } else {
+            $fs = "0" . $fs;
+            $fsc = $fsc + 1;
+        }
+    }
+
+    while($ssc !== $sfc){
+        if ($ssc > $sfc){
+            $sf = "0" . $sf;
+            $sfc = $sfc + 1;
+        } else {
+            $ss = "0" . $ss;
+            $ssc = $ssc + 1;
+        }
+    }
+
+
+    if ($ff >= $sf){
+        if ($ss >= $ff){
+            $sum = $sum + 1;
+            $is = 1;
+        } else {}
+    } else {}
+
+    if ($is === 0){
+        if ($sf >= $ff){
+            if ($fs >= $sf){
+                $sum = $sum + 1;
+            } else {}
+        } else {}
+    } else {}
+
+    $in = reads();
+}
+
+write($sum, "\n");
+//854
