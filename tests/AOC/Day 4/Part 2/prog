@@ -1,0 +1,58 @@
+<?php
+declare(strict_types=1);
+
+$sum = 0;
+$in = reads();
+while($in) {
+    $i = 0;
+    $ch = null;
+    while($ch !== ",") {
+        $i1 = $i + 1;
+        $ch = substring($in, $i, $i1);
+        $i = $i + 1;
+    }
+    $i1 = $i - 1;
+    $part1 = substring($in, 0, $i1);
+    $slen = strlen($in);
+    $part2 = substring($in, $i, $slen);
+    $i = 0;
+    $ch = null;
+    while($ch !== "-") {
+        $i1 = $i + 1;
+        $ch = substring($part1, $i, $i1);
+        $i = $i + 1;
+    }
+    $i1 = $i - 1;
+    $a = substring($part1, 0, $i1);
+    $slen = strlen($part1);
+    $b = substring($part1, $i, $slen);
+    $i = 0;
+    $ch = null;
+    while($ch !== "-") {
+        $i1 = $i + 1;
+        $ch = substring($part2, $i, $i1);
+        $i = $i + 1;
+    }
+    $i1 = $i - 1;
+    $c = substring($part2, 0, $i1);
+    $slen = strlen($part2);
+    $d = substring($part2, $i, $slen);
+
+    $a = intval($a);
+    $b = intval($b);
+    $c = intval($c);
+    $d = intval($d);
+    if($b >= $c) {
+        if($a <= $d) {
+            $sum = $sum + 1;
+            $d = 0 - 9999;
+        } else {}
+    } else {}
+    if($d >= $a) {
+        if($c <= $b) {
+            $sum = $sum + 1;
+        } else {}
+    } else {}
+    $in = reads();
+}
+write($sum, "\n");
