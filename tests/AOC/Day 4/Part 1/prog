@@ -46,13 +46,13 @@ while($in) {
         if($b >= $d) {
             $sum = $sum + 1;
             $c = 999999999;
-        }
-    }
+        } else {}
+    } else {}
     if($c <= $a) {
         if($d >= $b) {
             $sum = $sum + 1;
-        }
-    }
+        } else {}
+    } else {}
     $in = reads();
 }
 write($sum, "\n");
