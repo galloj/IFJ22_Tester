@@ -1,0 +1,9 @@
+<?php
+declare(strict_types=1);
+$x = "abcd";
+$x = substring($x, 0, 4);
+$y = 1;
+$y = substring($x, $y, 3);
+$z = 3;
+$z = substring($x, 1, $z);
+write($x, $y, $z);
