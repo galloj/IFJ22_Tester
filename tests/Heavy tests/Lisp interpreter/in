@@ -1,0 +1,1 @@
+((lambda (n) (((lambda (!) (! !)) (lambda (!) (lambda (n acc) (if (zero? n) acc ((! !) (- n 1) (* n acc)))))) n 1)) 6)
