@@ -1,0 +1,1264 @@
+<?php
+declare(strict_types=1);
+
+$one = "";
+$two = "";
+$three = "";
+$four = "";
+$five = "";
+$six = "";
+$seven = "";
+$eight = "";
+$nine = "";
+
+$sum = "";
+
+$count = 0;
+$in = reads();
+
+while ($in){
+    if ($count < 8){
+        $sub = substring($in, 1, 2);
+        if($sub !== " "){
+            $one = $sub . $one;
+        } else {}
+            $sub = substring($in, 5, 6);
+        if($sub !== " "){
+            $two = $sub . $two;
+        } else {}
+        $sub = substring($in, 9, 10);
+        if($sub !== " "){
+            $three = $sub . $three;
+        } else {}
+        $sub = substring($in, 13, 14);
+        if($sub !== " "){
+            $four = $sub . $four;
+        } else {}
+        $sub = substring($in, 17, 18);
+        if($sub !== " "){
+            $five = $sub . $five;
+        } else {}
+        $sub = substring($in, 21, 22);
+        if($sub !== " "){
+            $six = $sub . $six;
+        } else {}
+        $sub = substring($in, 25, 26);
+        if($sub !== " "){
+            $seven = $sub . $seven;
+        } else {}
+        $sub = substring($in, 29, 30);
+        if($sub !== " "){
+            $eight = $sub . $eight;
+        } else {}
+        $sub = substring($in, 33, 34);
+        if($sub !== " "){
+            $nine = $sub . $nine;
+        } else {}
+
+        $count = $count + 1;
+    } else {}
+    $in = reads();
+}
+
+// write($one, "\n");
+// write($two, "\n");
+// write($three, "\n");
+// write($four, "\n");
+// write($five, "\n");
+// write($six, "\n");
+// write($seven, "\n");
+// write($eight, "\n");
+// write($nine, "\n");
+// funguje
+
+$in = reads();
+
+while($in) {
+$move = "";
+$from = "";
+$num = "";
+$double = 0;
+
+    $sub = substring($in, 5, 6);
+    $move = $move . $sub;
+    $sub = substring($in, 6, 7);
+    if ($sub !== " "){
+        $move = $move . $sub;
+        $double = 1;
+    } else {}
+    if ($double === 0){
+        $from = substring($in, 12, 13);
+        $num = substring($in, 17, 18);
+    } else {
+        $from = substring($in, 13, 14);
+        $num = substring($in, 18, 19);
+    }
+
+// gde strnum :(
+$movec = 0;
+
+    if ($move === "1"){
+        $movec =1;
+    } else {}
+    if ($move === "2"){
+        $movec = 2;
+    } else {}
+    if ($move === "3"){
+        $movec = 3;
+    } else {}
+    if ($move === "4"){
+        $movec = 4;
+    } else {}
+    if ($move === "5"){
+        $movec = 5;
+    } else {}
+    if ($move === "6"){
+        $movec = 6;
+    } else {}
+    if ($move === "7"){
+        $movec = 7;
+    } else {}
+    if ($move === "8"){
+        $movec = 8;
+    } else {}
+    if ($move === "9"){
+        $movec = 9;
+    } else {}
+
+    if ($move === "10"){
+        $movec = 10;
+    } else {}
+    if ($move === "11"){
+        $movec = 11;
+    } else {}
+    if ($move === "12"){
+        $movec = 12;
+    } else {}
+    if ($move === "13"){
+        $movec = 13;
+    } else {}
+    if ($move === "14"){
+        $movec = 14;
+    } else {}
+    if ($move === "15"){
+        $movec = 15;
+    } else {}
+    if ($move === "16"){
+        $movec = 16;
+    } else {}
+    if ($move === "17"){
+        $movec = 17;
+    } else {}
+    if ($move === "18"){
+        $movec = 18;
+    } else {}
+    if ($move === "19"){
+        $movec = 19;
+    } else {}
+
+    if ($move === "20"){
+        $movec = 20;
+    } else {}
+    if ($move === "21"){
+        $movec = 21;
+    } else {}
+    if ($move === "22"){
+        $movec = 22;
+    } else {}
+    if ($move === "23"){
+        $movec = 23;
+    } else {}
+    if ($move === "24"){
+        $movec = 24;
+    } else {}
+    if ($move === "25"){
+        $movec = 25;
+    } else {}
+    if ($move === "26"){
+        $movec = 26;
+    } else {}
+    if ($move === "27"){
+        $movec = 27;
+    } else {}
+    if ($move === "28"){
+        $movec = 28;
+    } else {}
+    if ($move === "29"){
+        $movec = 29;
+    } else {}
+
+    if ($move === "30"){
+        $movec = 30;
+    } else {}
+    if ($move === "31"){
+        $movec = 31;
+    } else {}
+    if ($move === "32"){
+        $movec = 32;
+    } else {}
+    if ($move === "33"){
+        $movec = 33;
+    } else {}
+    if ($move === "34"){
+        $movec = 34;
+    } else {}
+    if ($move === "35"){
+        $movec = 35;
+    } else {}
+    if ($move === "36"){
+        $movec = 36;
+    } else {}
+    if ($move === "37"){
+        $movec = 37;
+    } else {}
+    if ($move === "38"){
+        $movec = 38;
+    } else {}
+    if ($move === "39"){
+        $movec = 39;
+    } else {}
+    if ($move === "40"){
+        $movec = 40;
+    } else {}
+
+// surely nikdo nemate vyssi jak 40
+// budeme predpokladat ze mame spravne cislo
+
+        if ($from === "1"){
+            if ($num === "2"){
+                $len = strlen($one);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($one, $movec, $len);
+                    $two = $two . $tmp;
+                    $one = substring($one, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "3"){
+                $len = strlen($one);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($one, $movec, $len);
+                    $three = $three . $tmp;
+                    $one = substring($one, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "4"){
+                $len = strlen($one);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($one, $movec, $len);
+                    $four = $four . $tmp;
+                    $one = substring($one, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "5"){
+                $len = strlen($one);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($one, $movec, $len);
+                    $five = $five . $tmp;
+                    $one = substring($one, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "6"){
+                $len = strlen($one);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($one, $movec, $len);
+                    $six = $six . $tmp;
+                    $one = substring($one, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "7"){
+                $len = strlen($one);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($one, $movec, $len);
+                    $seven = $seven . $tmp;
+                    $one = substring($one, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "8"){
+                $len = strlen($one);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($one, $movec, $len);
+                    $eight = $eight . $tmp;
+                    $one = substring($one, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "9"){
+                $len = strlen($one);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($one, $movec, $len);
+                    $nine = $nine . $tmp;
+                    $one = substring($one, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+        } else {}
+
+
+        if ($from === "2"){
+            if ($num === "1"){
+                $len = strlen($two);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($two, $movec, $len);
+                    $one = $one . $tmp;
+                    $two = substring($two, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "3"){
+                $len = strlen($two);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($two, $movec, $len);
+                    $three = $three . $tmp;
+                    $two = substring($two, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "4"){
+                $len = strlen($two);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($two, $movec, $len);
+                    $four = $four . $tmp;
+                    $two = substring($two, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "5"){
+                $len = strlen($two);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($two, $movec, $len);
+                    $five = $five . $tmp;
+                    $two = substring($two, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "6"){
+                $len = strlen($two);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($two, $movec, $len);
+                    $six = $six . $tmp;
+                    $two = substring($two, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "7"){
+                $len = strlen($two);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($two, $movec, $len);
+                    $seven = $seven . $tmp;
+                    $two = substring($two, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "8"){
+                $len = strlen($two);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($two, $movec, $len);
+                    $eight = $eight . $tmp;
+                    $two = substring($two, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "9"){
+                $len = strlen($two);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($two, $movec, $len);
+                    $nine = $nine . $tmp;
+                    $two = substring($two, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+        } else {}
+
+        
+
+        if ($from === "3"){
+            if ($num === "1"){
+                $len = strlen($three);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($three, $movec, $len);
+                    $one = $one . $tmp;
+                    $three = substring($three, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "2"){
+                $len = strlen($three);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($three, $movec, $len);
+                    $two = $two . $tmp;
+                    $three = substring($three, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "4"){
+                $len = strlen($three);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($three, $movec, $len);
+                    $four = $four . $tmp;
+                    $three = substring($three, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "5"){
+                $len = strlen($three);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($three, $movec, $len);
+                    $five = $five . $tmp;
+                    $three = substring($three, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "6"){
+                $len = strlen($three);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($three, $movec, $len);
+                    $six = $six . $tmp;
+                    $three = substring($three, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "7"){
+                $len = strlen($three);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($three, $movec, $len);
+                    $seven = $seven . $tmp;
+                    $three = substring($three, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "8"){
+                $len = strlen($three);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($three, $movec, $len);
+                    $eight = $eight . $tmp;
+                    $three = substring($three, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "9"){
+                $len = strlen($three);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($three, $movec, $len);
+                    $nine = $nine . $tmp;
+                    $three = substring($three, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+        } else {}
+
+
+
+
+        if ($from === "4"){
+            if ($num === "1"){
+                $len = strlen($four);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($four, $movec, $len);
+                    $one = $one . $tmp;
+                    $four = substring($four, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "2"){
+                $len = strlen($four);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($four, $movec, $len);
+                    $two = $two . $tmp;
+                    $four = substring($four, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "3"){
+                $len = strlen($four);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($four, $movec, $len);
+                    $three = $three . $tmp;
+                    $four = substring($four, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "5"){
+                $len = strlen($four);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($four, $movec, $len);
+                    $five = $five . $tmp;
+                    $four = substring($four, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "6"){
+                $len = strlen($four);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($four, $movec, $len);
+                    $six = $six . $tmp;
+                    $four = substring($four, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "7"){
+                $len = strlen($four);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($four, $movec, $len);
+                    $seven = $seven . $tmp;
+                    $four = substring($four, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "8"){
+                $len = strlen($four);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($four, $movec, $len);
+                    $eight = $eight . $tmp;
+                    $four = substring($four, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "9"){
+                $len = strlen($four);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($four, $movec, $len);
+                    $nine = $nine . $tmp;
+                    $four = substring($four, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+        } else {}
+
+
+        if ($from === "5"){
+            if ($num === "1"){
+                $len = strlen($five);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($five, $movec, $len);
+                    $one = $one . $tmp;
+                    $five = substring($five, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "2"){
+                $len = strlen($five);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($five, $movec, $len);
+                    $two = $two . $tmp;
+                    $five = substring($five, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "3"){
+                $len = strlen($five);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($five, $movec, $len);
+                    $three = $three . $tmp;
+                    $five = substring($five, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "4"){
+                $len = strlen($five);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($five, $movec, $len);
+                    $four = $four . $tmp;
+                    $five = substring($five, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "6"){
+                $len = strlen($five);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($five, $movec, $len);
+                    $six = $six . $tmp;
+                    $five = substring($five, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "7"){
+                $len = strlen($five);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($five, $movec, $len);
+                    $seven = $seven . $tmp;
+                    $five = substring($five, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "8"){
+                $len = strlen($five);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($five, $movec, $len);
+                    $eight = $eight . $tmp;
+                    $five = substring($five, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "9"){
+                $len = strlen($five);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($five, $movec, $len);
+                    $nine = $nine . $tmp;
+                    $five = substring($five, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+        } else {}
+
+
+
+        if ($from === "6"){
+            if ($num === "1"){
+                $len = strlen($six);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($six, $movec, $len);
+                    $one = $one . $tmp;
+                    $six = substring($six, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "2"){
+                $len = strlen($six);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($six, $movec, $len);
+                    $two = $two . $tmp;
+                    $six = substring($six, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "3"){
+                $len = strlen($six);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($six, $movec, $len);
+                    $three = $three . $tmp;
+                    $six = substring($six, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "4"){
+                $len = strlen($six);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($six, $movec, $len);
+                    $four = $four . $tmp;
+                    $six = substring($six, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "5"){
+                $len = strlen($six);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($six, $movec, $len);
+                    $five = $five . $tmp;
+                    $six = substring($six, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "7"){
+                $len = strlen($six);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($six, $movec, $len);
+                    $seven = $seven . $tmp;
+                    $six = substring($six, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "8"){
+                $len = strlen($six);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($six, $movec, $len);
+                    $eight = $eight . $tmp;
+                    $six = substring($six, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "9"){
+                $len = strlen($six);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($six, $movec, $len);
+                    $nine = $nine . $tmp;
+                    $six = substring($six, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+        } else {}
+
+
+        if ($from === "7"){
+            if ($num === "1"){
+                $len = strlen($seven);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($seven, $movec, $len);
+                    $one = $one . $tmp;
+                    $seven = substring($seven, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "2"){
+                $len = strlen($seven);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($seven, $movec, $len);
+                    $two = $two . $tmp;
+                    $seven = substring($seven, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "3"){
+                $len = strlen($seven);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($seven, $movec, $len);
+                    $three = $three . $tmp;
+                    $seven = substring($seven, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "4"){
+                $len = strlen($seven);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($seven, $movec, $len);
+                    $four = $four . $tmp;
+                    $seven = substring($seven, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "5"){
+                $len = strlen($seven);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($seven, $movec, $len);
+                    $five = $five . $tmp;
+                    $seven = substring($seven, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "6"){
+                $len = strlen($seven);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($seven, $movec, $len);
+                    $six = $six . $tmp;
+                    $seven = substring($seven, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "8"){
+                $len = strlen($seven);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($seven, $movec, $len);
+                    $eight = $eight . $tmp;
+                    $seven = substring($seven, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "9"){
+                $len = strlen($seven);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($seven, $movec, $len);
+                    $nine = $nine . $tmp;
+                    $seven = substring($seven, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+        } else {}
+
+
+
+        if ($from === "8"){
+            if ($num === "1"){
+                $len = strlen($eight);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($eight, $movec, $len);
+                    $one = $one . $tmp;
+                    $eight = substring($eight, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "2"){
+                $len = strlen($eight);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($eight, $movec, $len);
+                    $two = $two . $tmp;
+                    $eight = substring($eight, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "3"){
+                $len = strlen($eight);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($eight, $movec, $len);
+                    $three = $three . $tmp;
+                    $eight = substring($eight, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "4"){
+                $len = strlen($eight);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($eight, $movec, $len);
+                    $four = $four . $tmp;
+                    $eight = substring($eight, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "5"){
+                $len = strlen($eight);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($eight, $movec, $len);
+                    $five = $five . $tmp;
+                    $eight = substring($eight, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "6"){
+                $len = strlen($eight);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($eight, $movec, $len);
+                    $six = $six . $tmp;
+                    $eight = substring($eight, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "7"){
+                $len = strlen($eight);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($eight, $movec, $len);
+                    $seven = $seven . $tmp;
+                    $eight = substring($eight, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "9"){
+                $len = strlen($eight);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($eight, $movec, $len);
+                    $nine = $nine . $tmp;
+                    $eight = substring($eight, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+        } else {}
+
+
+
+        if ($from === "9"){
+            if ($num === "1"){
+                $len = strlen($nine);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($nine, $movec, $len);
+                    $one = $one . $tmp;
+                    $nine = substring($nine, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "2"){
+                $len = strlen($nine);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($nine, $movec, $len);
+                    $two = $two . $tmp;
+                    $nine = substring($nine, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "3"){
+                $len = strlen($nine);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($nine, $movec, $len);
+                    $three = $three . $tmp;
+                    $nine = substring($nine, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "4"){
+                $len = strlen($nine);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($nine, $movec, $len);
+                    $four = $four . $tmp;
+                    $nine = substring($nine, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "5"){
+                $len = strlen($nine);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($nine, $movec, $len);
+                    $five = $five . $tmp;
+                    $nine = substring($nine, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "6"){
+                $len = strlen($nine);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($nine, $movec, $len);
+                    $six = $six . $tmp;
+                    $nine = substring($nine, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "7"){
+                $len = strlen($nine);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($nine, $movec, $len);
+                    $seven = $seven . $tmp;
+                    $nine = substring($nine, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+            if ($num === "8"){
+                $len = strlen($nine);
+                if ($len !== 0){
+                    if ($movec > $len){
+                        $movec = 0;
+                    } else {
+                        $movec = $len - $movec;
+                    }
+                    $tmp = substring($nine, $movec, $len);
+                    $eight = $eight . $tmp;
+                    $nine = substring($nine, 0, $movec);
+                } else {$movec = 0;}
+            } else {}
+        } else {}
+
+
+    $in = reads();
+}
+
+
+$len = strlen($nine);
+if ($len !== 0){
+    $len1 = $len - 1;
+    $sub = substring($nine, $len1, $len);
+    $sum = $sub . $sum;
+} else {}
+$len = strlen($eight);
+if ($len !== 0){
+    $len1 = $len - 1;
+    $sub = substring($eight, $len1, $len);
+    $sum = $sub . $sum;
+} else {}
+$len = strlen($seven);
+if ($len !== 0){
+    $len1 = $len - 1;
+    $sub = substring($seven, $len1, $len);
+    $sum = $sub . $sum;
+} else {}
+$len = strlen($six);
+if ($len !== 0){
+    $len1 = $len - 1;
+    $sub = substring($six, $len1, $len);
+    $sum = $sub . $sum;
+} else {}
+$len = strlen($five);
+if ($len !== 0){
+    $len1 = $len - 1;
+    $sub = substring($five, $len1, $len);
+    $sum = $sub . $sum;
+} else {}
+$len = strlen($four);
+if ($len !== 0){
+    $len1 = $len - 1;
+    $sub = substring($four, $len1, $len);
+    $sum = $sub . $sum;
+} else {}
+$len = strlen($three);
+if ($len !== 0){
+    $len1 = $len - 1;
+    $sub = substring($three, $len1, $len);
+    $sum = $sub . $sum;
+} else {}
+$len = strlen($two);
+if ($len !== 0){
+    $len1 = $len - 1;
+    $sub = substring($two, $len1, $len);
+    $sum = $sub . $sum;
+} else {}
+$len = strlen($one);
+if ($len !== 0){
+    $len1 = $len - 1;
+    $sub = substring($one, $len1, $len);
+    $sum = $sub . $sum;
+} else {}
+
+write($sum, "\n");
