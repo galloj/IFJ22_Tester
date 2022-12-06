@@ -1,0 +1,8 @@
+<?php
+declare(strict_types=1);
+$foo = null;
+$bar = null;
+$baz = 1;
+$qux = 2;
+$z = $foo ?? $bar ?? $baz ?? $qux;
+write($z);
