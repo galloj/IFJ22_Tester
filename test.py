@@ -110,9 +110,10 @@ for root, dirs, files in os.walk("./tests"):
 	path = root.split(os.sep)[2:]
 	if path==[]:continue
 	if "ext" in files:
-		ext = open(root + "/ext").read().strip()
-		if ext not in extensions:
-			continue
+		exts = open(root + "/ext").read().strip().split("&")
+		for ext in exts:
+			if ext not in extensions:
+				continue
 	if "prog" in files:
 		if not run_test(root + "/", files, path[-1]):
 			is_ok = False
