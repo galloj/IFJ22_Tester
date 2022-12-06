@@ -1,0 +1,12 @@
+<?php
+declare(strict_types=1);
+$eps = 0.0001;
+$in = reads();
+$f = floatval($in);
+if($f < (10000000000.0 + $eps)) {
+    if($f > (10000000000.0 - $eps)) {
+        write("GOOD\n");
+    } else {}
+} else {
+    write("BAD\n");
+}
