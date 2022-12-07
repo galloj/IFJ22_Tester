@@ -1,0 +1,9 @@
+<?php
+declare(strict_types=1);
+$x = 0;
+write($x--, "\n");
+if($x === -1) {
+    write("GOOD");
+} else {
+    write("BAD");
+}

@@ -1,0 +1,5 @@
+<?php
+declare(strict_types=1);
+$x = 0;
+$x--;
+write($x);
